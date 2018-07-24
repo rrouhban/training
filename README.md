@@ -1,6 +1,27 @@
 Training
 ========
 
+What have we done?
+------------------
+
+### Day 1
+- [✔] Introduction to Symfony
+- [✔] Symfony versions
+- [✔] Composer
+- [✔] Symfony installer
+- [✔] Architecture
+- [✔] Controllers
+- [✔] Routing
+- [✔] HTTP workflow
+- [✔] Response object
+- [✔] ControllerTrait and features
+- [✔] Introduction to Twig
+- [✔] Twig syntax
+- [✔] Twig rendering and cache
+
+### Day 2
+
+
 Exercise 1
 ----------
 
