@@ -1,4 +1,4 @@
-{% extends "base.html.twig" %}
+{% extends "game/_base.html.twig" %}
 
 {% block body %}
     <h1>Game</h1>
@@ -14,7 +14,7 @@
     <section class="play">
         <ul class="letters">
         {% for letter in 'A'..'Z' if letter not in game.playedLetters %}
-            <li class="letter">{{ letter }}</li>
+            <li class="letter"><a href="{{ path('game_play_letter', {'letter': letter}) }}">{{ letter }}</a></li>
         {% endfor %}
         </ul>
     </section>
