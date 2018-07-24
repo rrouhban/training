@@ -21,6 +21,7 @@ class GameController extends AbstractController
     {
         $game = [
             'word' => 'BURGER',
+            'playedLetters' => ['E', 'U'],
         ];
 
         return $this->render('game/home.html.twig', [

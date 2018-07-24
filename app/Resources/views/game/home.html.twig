@@ -1,17 +1,21 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h1>Game</h1>
+{% extends "base.html.twig" %}
 
-<section>
-    {{ game.word|upper }}
-</section>
-</body>
-</html>
+{% block body %}
+    <h1>Game</h1>
+
+    <section class="word">
+        <ul class="letters">
+        {% for letter in game.word|split('') %}
+            <li class="letter">{{ letter in game.playedLetters ? letter : '_' }}</li>
+        {% endfor %}
+        </ul>
+    </section>
+
+    <section class="play">
+        <ul class="letters">
+        {% for letter in 'A'..'Z' if letter not in game.playedLetters %}
+            <li class="letter">{{ letter }}</li>
+        {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
