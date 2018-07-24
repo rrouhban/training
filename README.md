@@ -38,3 +38,9 @@ Exercise 2
 1. Use layouts in all of your templates
 2. Display the "A, B, …, Z" letters in order to play
 3. Hide all the letters of the word that have to be guessed
+
+Exercise 3
+----------
+
+1. Add a style sheet for any page in a "game" context
+2. Add links to letters in order to guess those from the word
