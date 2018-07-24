@@ -26,7 +26,13 @@ What have we done?
 - [✔] Twig rendering and cache
 
 ### Day 2
-
+- [✔] Twig bridge: asset, path
+- [✔] Twig inheritance
+- [✔] Doctrine entities
+- [✔] Doctrine migrations
+- [✔] Forms
+- [✔] Validators
+- [✔] Introduction to form themes
 
 Exercise 1
 ----------
@@ -50,3 +56,8 @@ Exercise 3
 
 1. Add a style sheet for any page in a "game" context
 2. Add links to letters in order to guess those from the word
+
+Exercise 4
+----------
+
+1. Add a new "email" field (with its validators) in "Contact" form
