@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -17,11 +18,13 @@ class GameController extends AbstractController
     /**
      * @Route("", name="game_homepage")
      */
-    public function homeAction()
+    public function homeAction(SessionInterface $session)
     {
+        $playedLetters = dump($session->get('playedLetters'));
+
         $game = [
             'word' => 'BURGER',
-            'playedLetters' => ['E', 'U'],
+            'playedLetters' => $playedLetters,
         ];
 
         return $this->render('game/home.html.twig', [
@@ -48,8 +51,12 @@ class GameController extends AbstractController
     /**
      * @Route("/play/{letter}", requirements={"letter"="[A-Z]"}, name="game_play_letter")
      */
-    public function playLetterAction($letter)
+    public function playLetterAction($letter, SessionInterface $session)
     {
+        $playedLetters = $session->get('playedLetters') ?: [];
+        $playedLetters[] = $letter;
+
+        $session->set('playedLetters', $playedLetters);
         return $this->redirectToRoute('game_homepage');
     }
 }
