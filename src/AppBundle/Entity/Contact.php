@@ -4,6 +4,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Contact
@@ -49,6 +50,14 @@ class Contact
      * @ORM\Column(type="text")
      */
     private $message;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     * @Assert\Email(checkMX=true)
+     */
+    private $email;
 
     /**
      * @return int
@@ -137,6 +146,24 @@ class Contact
     public function setMessage($message)
     {
         $this->message = $message;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     * @return Contact
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
         return $this;
     }
 
