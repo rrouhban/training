@@ -1,6 +1,12 @@
 Training
 ========
 
+Slack
+-----
+https://symfony-20180723.slack.com/messages
+
+Invitation link: https://bit.ly/2uNmkTN
+
 What have we done?
 ------------------
 
