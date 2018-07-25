@@ -19,7 +19,7 @@
             <div class="col-12">
                 {% for letter in 'A'..'Z' %}
                     <h1 class="d-inline-block px-1">
-                        <a href="{{ path('game_play_letter', {'letter': letter} ) }}" class="btn btn-info font-weight-bold {{ letter in game.playedLetters ? 'disabled' : ''}}">
+                        <a href="{{ path('game_play_letter', {'letter': letter} ) }}" class="btn btn-info font-weight-bold {{ letter in game.playedLetters ? 'disabled' : '' }}">
                             {{ letter }}
                         </a>
                     </h1>

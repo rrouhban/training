@@ -4,6 +4,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Services\Game;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -60,12 +61,9 @@ class GameController extends AbstractController
     /**
      * @Route("/play/{letter}", requirements={"letter"="[A-Z]"}, name="game_play_letter")
      */
-    public function playLetterAction($letter, SessionInterface $session)
+    public function playLetterAction($letter, Game $game)
     {
-        $playedLetters = $session->get('playedLetters') ?: [];
-        $playedLetters[] = $letter;
-
-        $session->set('playedLetters', $playedLetters);
+        $game->playLetter($letter);
 
         return $this->redirectToRoute('game_homepage');
     }
