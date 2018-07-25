@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Indie+Flower');
+
+body {
+    font-family: 'Indie FLower', cursive;
+}
+
+.btn {
+    font-family: 'Raleway', sans-serif;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+input {
+    font-family: 'Raleway', sans-serif;
+}
+
+textarea {
+    resize: none;
+}
+
+.chat-container {
+    border-radius: 50%;
+    position: relative;
+    width: 20rem;
+}
+
+.chat-bubble {
+    border-radius: 50%;
+    background-color: rgba(92, 189, 119, .3);
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 75%;
+}
+
+.chat-bubble:after {
+    border-right: 1.3rem solid transparent;
+    border-top: 1rem solid rgba(92, 189, 119, .3);
+    bottom: -.95rem;
+    content: '';
+    display: block;
+    height: 0;
+    left: 7rem;
+    position: absolute;
+    width: 0;
+}
