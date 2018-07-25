@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class GameController extends AbstractController
 {
     /**
-     * @Route("", name="game_homepage")
+     * @Route("/", name="game_homepage")
      */
     public function homeAction(SessionInterface $session)
     {
