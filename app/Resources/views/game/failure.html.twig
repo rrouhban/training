@@ -1,9 +1,23 @@
 {% extends 'game/start.html.twig' %}
 
 {% block body %}
-    <div class="row justify-content-center py-5">
-        <div class="col-6">
-            <img class="img-fluid d-block mx-auto py-4" src="{{ asset('assets/images/you-dead.jpg') }}" alt="" />
+    <div class="row text-center justify-content-center align-items-center py-5">
+        <h3 class="col-7 py-5">
+            Hey...
+            <br>
+            <br>
+            Guess what... ?
+        </h3>
+        <div class="w-100 py-4"></div>
+        <div class="col-5">
+            <img class="img-fluid d-block mx-auto py-4" src="{{ asset('assets/images/corpse.png') }}" alt="" />
+        </div>
+        <div class="w-100"></div>
+        <h1 class="col-7 py-5 text-uppercase text-danger font-weight-bold">
+            You dead !
+        </h1>
+        <div class="col-10 py-5 text-left">
+            <a class="text-dark h2" href="{{ path('homepage') }}">< Homepage</a>
         </div>
     </div>
 {% endblock %}
