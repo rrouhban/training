@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/game.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <div class="row text-center justify-content-center align-items-center py-5">
+        <div class="col-3">
+            <img class="img-fluid d-block mx-auto py-4" src="{{ asset('assets/images/hangman.png') }}" alt="" />
+        </div>
+        <div class="col-7">
+            <div class="col-12 py-5">
+                {% for char in game.word|split('') %}
+                    <h2 class="d-inline"> {{ (char in game.playedLetters) ? char : '_' }} </h2>
+                {% endfor %}
+            </div>
+            <div class="col-12">
+                {% for letter in 'A'..'Z' %}
+                    <h1 class="d-inline-block px-1">
+                        <a href="{{ path('game_play_letter', {'letter': letter} ) }}" class="btn btn-info font-weight-bold {{ letter in game.playedLetters ? 'disabled' : ''}}">
+                            {{ letter }}
+                        </a>
+                    </h1>
+                {% endfor %}
+            </div>
+            <div class="col-12 py-5">
+                <h1>
+                    <a href="{{ path('game_clear') }}" class="btn btn-warning font-weight-bold px-4 py-2">{{ 'Clear'|upper }}</a>
+                </h1>
+            </div>
+        </div>
+        <div class="col-10 py-5 text-left">
+            <a class="text-dark h2" href="{{ path('game_homepage') }}">< Homepage</a>
+        </div>
+    </div>
+{% endblock %}

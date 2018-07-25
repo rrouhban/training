@@ -1,15 +1,45 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Contact</h1>
+{% extends 'base.html.twig' %}
 
-    {{ form(contact_form) }}
-</body>
-</html>
+{% block body %}
+    <div class="row text-center justify-content-center align-items-center py-5">
+        <div class="col-7">
+            <div class="col-12 py-5">
+                <h1 class="pb-4">
+                    You wanna talk ?
+                </h1>
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-5 text-left">
+            {{ form_start(contact_form) }}
+            <div class="form-group h5">
+                {{ form_label(contact_form.firstname) }} :
+                {{ form_widget(contact_form.firstname) }}
+            </div>
+            <div class="form-group h5">
+                {{ form_label(contact_form.lastname) }} :
+                {{ form_widget(contact_form.lastname) }}
+            </div>
+            <div class="form-group h5">
+                {{ form_label(contact_form.email) }} :
+                {{ form_widget(contact_form.email) }}
+            </div>
+            <div class="form-group h5">
+                {{ form_label(contact_form.subject) }} :
+                {{ form_widget(contact_form.subject) }}
+            </div>
+            <div class="form-group h5 mb-4">
+                {{ form_label(contact_form.message) }} :
+                {{ form_widget(contact_form.message) }}
+            </div>
+            <div class="text-center">
+                {{ form_widget(contact_form.submit) }}
+            </div>
+            {{ form_end(contact_form) }}
+        </div>
+        <div class="col-10 py-5 text-left">
+            <a class="text-dark h2" href="{{ path('home') }}">< Homepage</a>
+        </div>
+    </div>
+{% endblock %}
+

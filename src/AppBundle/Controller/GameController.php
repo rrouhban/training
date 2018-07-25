@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -27,7 +28,7 @@ class GameController extends AbstractController
             'playedLetters' => $playedLetters,
         ];
 
-        return $this->render('game/home.html.twig', [
+        return $this->render('game/start.html.twig', [
             'game' => $game,
         ]);
     }
@@ -37,7 +38,7 @@ class GameController extends AbstractController
      */
     public function wonAction()
     {
-        return $this->render('game/won.html.twig');
+        return $this->render('game/success.html.twig');
     }
 
     /**
@@ -45,7 +46,15 @@ class GameController extends AbstractController
      */
     public function hangedAction()
     {
-        return $this->render('game/hanged.html.twig');
+        return $this->render('game/failure.html.twig');
+    }
+
+    /**
+     * @Route("/clear", name="game_clear")
+     */
+    public function gameClearAction()
+    {
+        return new Response();
     }
 
     /**
@@ -57,6 +66,7 @@ class GameController extends AbstractController
         $playedLetters[] = $letter;
 
         $session->set('playedLetters', $playedLetters);
+
         return $this->redirectToRoute('game_homepage');
     }
 }
