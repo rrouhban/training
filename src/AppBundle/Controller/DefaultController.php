@@ -47,6 +47,7 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Cache(smaxage=20)
      * @Route("/comme-bon-me-semble", name="last_users")
      */
     public function lastUsersAction()
