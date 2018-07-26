@@ -42,7 +42,7 @@ doctrine:
     dbal:
         driver: pdo_sqlite
         charset: UTF8
-        path: '%kernel.project_dir%/var/data.sqlite'
+        path: '%kernel.project_dir%/app/data.sqlite'
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'

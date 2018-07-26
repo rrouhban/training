@@ -11,6 +11,8 @@
             <img class="img-fluid d-block mx-auto py-4" src="{{ asset('assets/images/hangman.png') }}" alt="" />
         </div>
         <div class="col-7">
+            {#{{ dump(app.user) }}#}
+
             <div class="col-12 py-5">
                 {% for char in game.word|split('') %}
                     <h2 class="d-inline"> {{ (char in game.playedLetters) ? char : '_' }} </h2>
