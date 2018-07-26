@@ -10,7 +10,11 @@
         <div class="col-3">
             <img class="img-fluid d-block mx-auto py-4" src="{{ asset('assets/images/hangman.png') }}" alt="" />
         </div>
-        <div class="col-7">
+        <div class="col-2">
+            {{ render(controller('AppBundle:Default:lastUsers')) }}
+        </div>
+        <div class="col-5">
+
             {#{{ dump(app.user) }}#}
 
             <div class="col-12 py-5">

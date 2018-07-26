@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Contact;
+use AppBundle\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,6 +13,7 @@ use AppBundle\Form\ContactType;
 class DefaultController extends AbstractController
 {
     /**
+     * @Cache(maxage=3600)
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
@@ -38,9 +41,20 @@ class DefaultController extends AbstractController
             $manager->flush();
         }
 
-//        return new Response('Contact');
         return $this->render('default/contact.html.twig', [
             'contact_form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/comme-bon-me-semble", name="last_users")
+     */
+    public function lastUsersAction()
+    {
+        $users = $this->getDoctrine()->getRepository(User::class)->findBy([], [],  5);
+
+        return $this->render('default/last_users.html.twig', [
+            'users' => $users,
         ]);
     }
 }

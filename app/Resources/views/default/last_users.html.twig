@@ -1,0 +1,6 @@
+<h3>Last users</h3>
+<ul>
+    {% for user in users %}
+        <li>{{ user.id ~ ' - ' ~ user.username }}</li>
+    {% endfor %}
+</ul>
