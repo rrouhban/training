@@ -3,16 +3,32 @@
 namespace Tests\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\BrowserKit\Client;
 
 class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
+    /** @var Client */
+    private $client;
+
+    public function setUp()
     {
-        $client = static::createClient();
+        $this->client = static::createClient();
+    }
 
-        $crawler = $client->request('GET', '/');
+    public function testHome()
+    {
+        $this->client->request('GET', '/');
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
+
+        $content = $this->client->getResponse()->getContent();
+        $this->assertContains('play', $content);
+    }
+
+    public function testContact()
+    {
+        $this->client->request('GET', '/contact-us');
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 }
