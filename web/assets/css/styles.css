@@ -6,6 +6,8 @@ body {
 
 .btn {
     font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 a:hover {
@@ -48,4 +50,17 @@ textarea {
     left: 7rem;
     position: absolute;
     width: 0;
+}
+
+.last-users {
+    font-family: 'Raleway', sans-serif;
+    left: 3rem;
+    position: fixed;
+    text-align: left;
+    top: 3rem;
+}
+
+.last-users > li:first-child {
+    text-align: center;
+    text-transform: uppercase;
 }

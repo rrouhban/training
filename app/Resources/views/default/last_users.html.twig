@@ -1,6 +1,6 @@
-<h3>Last users</h3>
-<ul>
+<ul class="list-group last-users">
+        <li class="list-group-item list-group-item-primary"><h5>Last users</h5></li>
     {% for user in users %}
-        <li>{{ user.id ~ ' - ' ~ user.username }}</li>
+        <li class="list-group-item list-group-item-info">{{ user.id ~ ' - ' ~ user.fullname }}</li>
     {% endfor %}
 </ul>
